@@ -1,7 +1,7 @@
 {
-  "name": "module",
-  "title": "New Module",
-  "description": "",
+  "name": "open-skills",
+  "title": "Open Skills",
+  "description": "Module for allowing players to roll their skills against different abilities if requested to by the DM",
   "version": "This is auto replaced",
   "library": "false",
   "manifestPlusVersion": "1.0.0",
