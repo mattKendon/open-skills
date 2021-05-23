@@ -1,6 +1,6 @@
 {
   "name": "open-skills",
-  "title": "Open Skills",
+  "title": "Open Skills 5e",
   "description": "Module for allowing players to roll their skills against different abilities if requested to by the DM",
   "version": "This is auto replaced",
   "library": "false",
@@ -14,6 +14,9 @@
       "discord": "discordID#0001"
     }
   ],
+  "systems": [
+    "dnd5e"
+  ],
   "dependencies": [
 
   ],
@@ -21,13 +24,8 @@
     
   ],
   "esmodules": [
-    "/scripts/module.js"
-  ],
-  "scripts": [
-    "/scripts/lib/lib.js"
-  ],
-  "styles": [
-    "/styles/module.css"
+    "./scripts/module.js",
+    "./scripts/libWrapperShim.js"
   ],
   "languages": [
     {
