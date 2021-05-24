@@ -14,17 +14,26 @@ function patchActor5eRollSkill() {
     console.log("Patching CONFIG.Actor.entityClass.prototype.rollSkill");
     libWrapper.register(MODULE_NAME, 'CONFIG.Actor.entityClass.prototype.rollSkill', function (wrapper, ...args) {
         const skl = this.data.data.skills[args[0]]
+
         let options = args[1]
-        options.parts = ['@prof']
-        options.data = {
-            prof: skl.prof,
-            abilities: this.data.data.abilities,
-            ability: skl.ability
+        let parts = ['@prof']
+
+        if (options.parts?.length > 0) {
+            parts.push(...options.parts);
         }
-        options.template = "modules/open-skills/templates/chat/roll-skill-dialog.html"
-        args[1] = options
+
+        args[1] = mergeObject(mergeObject({
+            data: {
+                prof: skl.prof,
+                abilities: this.data.data.abilities,
+                ability: skl.ability
+            },
+            template: "modules/open-skills/templates/chat/roll-skill-dialog.html"
+        }, options), {parts: parts})
+
         try {
             return wrapper(...args);
         } catch (e) {console.error(e);}
+
     }, 'WRAPPER');
 }
